@@ -22,14 +22,9 @@ const options = {
 
     if (today <= selectedDates[0]) {
       startBtn.disabled = false;
-      let time = selectedDates[0].getTime() - today;
-      let countTime = convertMs(time);
-      daysDisplay.innerHTML = addLeadingZero(countTime.days);
-      hoursDisplay.innerHTML = addLeadingZero(countTime.hours);
-      minDisplay.innerHTML = addLeadingZero(countTime.minutes);
-      secDisplay.innerHTML = addLeadingZero(countTime.seconds);
-
       const countdown = () => {
+        let time = selectedDates[0].getTime() - today;
+        startBtn.disabled = true;
         let mainInterval = setInterval(() => {
           if (time > 0) {
             time -= 1000;
